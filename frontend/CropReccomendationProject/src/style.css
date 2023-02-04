@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    /* Remove body margins */
+}
+
+div.landingPage {
+    border: none;
+    padding-top: 5px;
+    font-size: larger;
+    text-align: center;
+    background-image: url(/public/images/bg-plant.jpg);
+    background-position: center;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    padding-right: 200px;
+    color: rgb(70, 82, 68);
+    text-align: right;
+}
+
+p {
+    text-align: center;
+}
+
+.button {
+    height: 40px;
+    width: 200px;
+    text-align: center;
+    background-color: green;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    border: 0px;
+    border-radius: 10px;
+    margin: 2px;
+}
+
+.button:hover {
+    background-color: rgb(19, 92, 19);
+}

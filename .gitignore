@@ -1,0 +1,8 @@
+backend/__pycache__/
+backend/try.py
+backend/model_svm.joblib
+frontend/CropRecommendationProject/.vscode/
+frontend/CropRecommendationProject/node_modules/
+frontend/CropRecommendationProject/README.md
+nodemcu/nodemcu-as-client/
+nodemcu/sketch_feb01a/
