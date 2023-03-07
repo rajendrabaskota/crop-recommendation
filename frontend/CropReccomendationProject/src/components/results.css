@@ -1,0 +1,42 @@
+.table_div {
+  width: 100%;
+  overflow: auto;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 80%;
+  font-size: 14px;
+  text-align: left;
+  margin: 2rem;
+  text-align: center;
+}
+
+.table th,
+.table td {
+  font-size: 1.5rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #87a36f;
+  font-weight: bold;
+  color: #444;
+}
+
+.table td {
+  color: #715858;
+}
+
+.table td.table_td:first-child {
+  font-weight: bold;
+}
+
+.table th.table_th:first-child {
+  font-weight: bold;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #eaffe8;
+}

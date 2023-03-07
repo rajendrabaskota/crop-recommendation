@@ -1,0 +1,50 @@
+.login_button {
+    background-color: #04AA6D;
+    text-align: center;
+    color: white;
+    padding: 10px 20px;
+    border: solid black 1px;
+    border-radius: 8rem;
+    font-size: 2rem;
+    cursor: pointer;
+
+    position: absolute;
+    top: 35%;
+    left: 20%;
+  }
+
+.login_button:hover{
+  color:black;
+  background-color:rgb(0, 200,100);
+  transition: 300ms;
+}
+
+.first_form{
+  margin: 2rem; 
+}
+
+.first_page_heading{
+  font-size: 4rem;
+  color: rgb(53, 126, 90);
+  border: 2px black;
+  text-shadow:3px 3px 5px rgb(113, 182, 149); 
+  margin: 2rem;
+}
+
+.first_page_ph_no{
+  font-size: 2rem;
+  color: darkgreen;
+}
+
+.form_input{
+  padding: 1rem;
+  margin: 1rem;
+  font-size: 2rem;
+}
+
+.login_div{
+  position: relative;
+}
+
+
+  
