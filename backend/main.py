@@ -21,7 +21,7 @@ app.add_middleware(
     allow_headers = ["*"],
 )
 
-filename = "model_svm_pickle.pkl"
+filename = "svm_model_pickle.pkl"
 with open(filename, 'rb') as file:
     model = pickle.load(file)
 
@@ -35,39 +35,32 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
-X_mean = np.array([50.44318181818182,
- 53.42329545454545,
- 48.13693181818182,
- 25.675126152979544,
- 71.50815023747728,
- 6.473164028671023,
- 103.44443490492046])
+X_mean = np.array([50.547159,
+ 53.283523,
+ 48.150000,
+ 25.602018,
+ 71.437671,
+ 6.473384])
 
-X_std = np.array([36.8808764052793,
- 32.99710425385808,
- 50.62063673358458,
- 5.137925815762948,
- 22.232054690816646,
- 0.7701459198145933,
- 54.948271583721564])
+X_std = np.array([37.084931,
+ 33.008001,
+ 50.646067,
+ 5.090553,
+ 22.287511,
+ 0.770325])
 
-
-# class Data(BaseModel):
-#     temp: str
-#     humidity: str
 
 class Node(BaseModel):
     node_id: str
     temp: str
     humidity: str
+    pH: str
 
 class Form(BaseModel):
     phone_no: str
     N: float
     P: float
     K: float
-    pH: float
-    rainfall: float
 
 data = {}
 
@@ -81,7 +74,13 @@ def fetch_data(item: Node):
     # data['node_id'] = int(item.node_id)
     dict['temp'] = float(item.temp)
     dict['humidity'] = float(item.humidity)
+    dict['pH'] = float(item.pH)
     data[int(item.node_id)] = dict
+    # print(item.node_id)
+    # print(item.temp)
+    # print(item.humidity)
+    # print(item.pH)
+    print(data)
 
 @app.post('/form-submit')
 def submit(item: Form):
@@ -89,11 +88,6 @@ def submit(item: Form):
     dict['N'] = item.N
     dict['P'] = item.P
     dict['K'] = item.K
-    dict['ph'] = item.pH
-    dict['rainfall'] = item.rainfall
-
-    print("datatype: ")
-    print(type(item.phone_no))
 
     mycursor = mydb.cursor()
     mycursor.execute('''select node_id as nodeID,pname as person_name,phone_no
@@ -113,7 +107,7 @@ def submit(item: Form):
     print(data)
     print(name)
 
-    X = np.array([[dict['N'], dict['P'], dict['K'], required_data['temp'], required_data['humidity'], dict['ph'], dict['rainfall']]])
+    X = np.array([[dict['N'], dict['P'], dict['K'], required_data['temp'], required_data['humidity'], required_data['ph']]])
     X = (X - X_mean) / X_std
 
     # data = np.array([[-1.367733, -1.073527, -0.674368, 0.797281, 0.922049, 0.954140, 0.199674]])
